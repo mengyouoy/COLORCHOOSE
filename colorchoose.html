@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colorchoose</title>
+    <style>
+        #choose{ 
+            margin-top: 30px;
+            position: absolute;
+            width: 192px;
+            margin-left: 2px;
+        }
+        #point{
+            float: left;
+            width:14px;
+            height: 14px;
+            margin-left: 5px;
+            margin-top: 5px;
+            cursor:pointer;
+        }
+        #box{
+            width: 200px;
+            height: 250px;
+            background-color: rgb(235, 233, 233);
+        }
+        #colorshow{
+            width: 180px;
+            height: 14px;
+            position:absolute;
+            margin-top: 8px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorchoose">
+        
+        <div id="word" v-bind:style="{ color: coch}">
+            {{coch}}
+        </div>
+
+
+        <div id="box">
+            <div id="colorshow" v-bind:style="{ 'background-color': coch }">
+            </div>
+            <div id="choose">
+                <div id="point" v-for="item in colorbox" v-bind:style="{ 'background-color': item }" @click="changecolor(item)" >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        var cc = new Vue({
+            el:"#colorchoose",
+            data:{
+                colorbox:[  '#FFFFFF',      '#F0F0FC',      '#E0E0E0',		'#BEBEBE',		'#9D9D9D',
+                            '#7B7B7B',		'#5B5B5B',		'#4F4F4F',		'#3C3C3C',		'#000000',
+                            '#FFD2D2',		'#FFB5B5',		'#FF9797',		'#FF7575',		'#FF5151',
+                            '#FF0000',		'#CE0000',		'#930000',		'#600000',		'#2F0000',
+                            '#FFECF5',		'#FFD9EC',		'#FFC1E0',		'#FFAAD5',	    '#FF95CA',
+                            '#FF60AF',		'#FF0080',		'#D9006C',		'#9F0050',		'#600030',
+                            '#FFE6FF',		'#FFD0FF',		'#FFBFFF',		'#FFA6FF',		'#FF8EFF',
+                            '#FF44FF',		'#E800E8',		'#AE00AE',		'#750075',		'#460046',
+                            '#F1E1FF',		'#E6CAFF',		'#DCB5FF',	    '#D3A4FF',		'#CA8EFF',
+                            '#B15BFF',		'#921AFF',		'#6F00D2',		'#4B0091',		'#28004D',
+                            '#D2E9FF',		'#C4E1FF',		'#ACD6FF',		'#97CBFF',		'#84C1FF',
+                            '#46A3FF',		'#0080FF',		'#0066CC',		'#004B97',		'#000079',
+                            '#ECFFFF',		'#D9FFFF',		'#CAFFFF',		'#BBFFFF',		'#A6FFFF',
+                            '#4DFFFF',		'#00E3E3',		'#00AEAE',		'#007979',		'#003E3E',
+                            '#EFFFD7',		'#E8FFC4',		'#DEFFAC',		'#D3FF93',		'#CCFF80',
+                            '#B7FF4A',		'#9AFF02',		'#82D900',		'#64A600',		'#467500',
+                            '#FFFFDF',		'#FFFFCE',		'#FFFFB9',		'#FFFFAA',		'#FFFF93',
+                            '#FFFF37',		'#E1E100',		'#A6A600',		'#737300',		'#424200',
+                            '#FFEEDD',		'#FFE4CA',		'#FFDCB9',		'#FFD1A4',		'#FFC78E',
+                            '#FFAF60',		'#FFA042',		'#FF8000',		'#D26900',		'#844200',
+                        ],
+                sor:"hello",
+                activeColor: 'green',
+            	fontSize: 30,
+                coch:'#000000',
+            },
+            methods:{
+                changecolor(chcolor){
+                    this.coch = chcolor;
+                }
+            }
+        })
+
+
+    </script>
+</body>
+</html>
